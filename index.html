@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>智研 · AI 工程接案服務｜法律 AI、RAG 系統與 Agent 架構</title>
+  <meta name="description" content="智研為台灣企業提供 AI 接案服務：法律 AI 系統、RAG 檢索、多模型 Agent 架構、提示詞工程與 API 整合。從研究、架構到部署的完整諮詢。" />
+  <meta property="og:title" content="智研 · AI 工程接案服務" />
+  <meta property="og:description" content="台灣法律 AI 與多模型 Agent 架構專家，提供從研究、架構到部署的完整接案服務。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./base.css" />
+  <link rel="stylesheet" href="./style.css" />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a2332'/%3E%3Cpath d='M9 22V10h3.2l4.8 8.2V10H20v12h-3.2l-4.8-8.2V22H9z' fill='%23c9a84c'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <a href="#main" class="skip-link">跳至主要內容</a>
+
+  <!-- ===== Header ===== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="#hero" class="brand" aria-label="智研首頁">
+        <span class="brand__mark" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+            <rect width="32" height="32" rx="7" fill="var(--navy)"/>
+            <rect x="8" y="7" width="3" height="18" rx="1.5" fill="var(--gold)"/>
+            <rect x="14" y="8" width="10" height="2.6" rx="1.3" fill="var(--gold)"/>
+            <rect x="14" y="14.7" width="10" height="2.6" rx="1.3" fill="var(--gold)"/>
+            <rect x="14" y="21.4" width="6.5" height="2.6" rx="1.3" fill="var(--gold)"/>
+          </svg>
+        </span>
+        <span>
+          <span class="brand__name">智研</span><br/>
+          <span class="brand__sub">Zhiyan Studio</span>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="主導航">
+        <ul class="nav__links" role="list">
+          <li><a href="#services">服務項目</a></li>
+          <li><a href="#capabilities">技術能力</a></li>
+          <li><a href="#method">合作流程</a></li>
+          <li><a href="#cases">實績案例</a></li>
+          <li><a href="#pricing">報價方案</a></li>
+        </ul>
+        <div class="header__actions">
+          <button class="icon-btn" data-theme-toggle aria-label="切換深淺色模式">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <a href="#contact" class="btn btn--gold">開始洽談</a>
+          <button class="icon-btn nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer">
+    <button class="icon-btn drawer__close" id="drawerClose" aria-label="關閉選單">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <nav aria-label="行動版導航">
+      <a href="#services" data-drawer-link>服務項目</a>
+      <a href="#capabilities" data-drawer-link>技術能力</a>
+      <a href="#method" data-drawer-link>合作流程</a>
+      <a href="#cases" data-drawer-link>實績案例</a>
+      <a href="#pricing" data-drawer-link>報價方案</a>
+      <a href="#contact" data-drawer-link>開始洽談</a>
+    </nav>
+  </div>
+
+  <main id="main">
+    <!-- ===== Hero ===== -->
+    <section class="hero" id="hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">AI 工程接案服務 · 台灣</p>
+          <h1 class="hero__title">讓 AI 為你的<span class="hl">業務落地</span>，<br/>而不只是<span class="hl">示範</span>。</h1>
+          <p class="hero__lead">
+            智研專注於台灣法規與中文語境，協助企業從 AI 研究、系統架構一路走到正式部署。專精法律 AI、RAG 檢索增強、多模型 Agent 編排與提示詞工程——每一個答案都可追蹤、可驗證。
+          </p>
+          <div class="hero__cta">
+            <a href="#contact" class="btn btn--gold btn--lg">預約免費諮詢</a>
+            <a href="#cases" class="btn btn--ghost btn--lg">查看實績案例</a>
+          </div>
+          <div class="hero__trust">
+            <div class="trust-item"><strong>47K+</strong> 法規向量資料</div>
+            <div class="trust-item"><strong>7層</strong> 系統架構</div>
+            <div class="trust-item"><strong>123項</strong> 通過測試</div>
+            <div class="trust-item"><strong>MIT</strong> 開源授權</div>
+          </div>
+        </div>
+
+        <div class="hero__visual">
+          <p class="hero__visual-label">引用驗證示範</p>
+          <p class="hero__visual-title">AI 回答附帶可驗證來源</p>
+
+          <div class="cite-demo">
+            <p class="q">公然侮辱罪的構成要件是什麼？</p>
+            <p class="a">公然侮辱罪規定於刑法第309條，須符合「公然」與「侮辱」兩要件⋯⋯</p>
+            <span class="cite-chip">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+              已驗證 · 刑法 §309
+            </span>
+          </div>
+
+          <div class="verified-row">
+            <span class="dot-ok"></span>
+            來源存在性已回頭查核 · 非捏造
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Stats ===== -->
+    <section class="stats">
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat"><div class="stat__num">47,001</div><div class="stat__label">法規全文檢索資料</div></div>
+          <div class="stat"><div class="stat__num">100+</div><div class="stat__label">規格與測試文件</div></div>
+          <div class="stat"><div class="stat__num">7</div><div class="stat__label">層防幻覺架構</div></div>
+          <div class="stat"><div class="stat__num">100%</div><div class="stat__label">繁體中文在地</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Services ===== -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">服務項目</p>
+          <h2 class="section-title">從 AI 研究 到 AI 系統</h2>
+          <p class="section-lead">法律 AI 不是買一套現成方案就能用的東西。每個場景需要不同的設計——我們提供從研究、架構到部署的完整諮詢，對台灣的法律環境有具體認識。</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M3 12h18"/><circle cx="12" cy="12" r="9"/></svg>
+            </div>
+            <h3 class="card__title">法律 AI 系統開發</h3>
+            <p class="card__desc">以台灣法規為核心的 AI 法律研究助手，整合書狀初稿審查、條文速查、判決分析，每個答案附帶可驗證來源。</p>
+            <ul class="card__list">
+              <li>強制引用政策（非捏造）</li>
+              <li>安全路由：先接住情緒再續法律</li>
+              <li>事實閘門：標示「待查/推論」</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </div>
+            <h3 class="card__title">RAG 檢索增強系統</h3>
+            <p class="card__desc">為你的內部知識庫打造檢索增強生成架構，支援判決書、法規、條款、企業文件的智慧搜尋與精準問答。</p>
+            <ul class="card__list">
+              <li>SQLite FTS5 全文檢索</li>
+              <li>向量嵌入與語意搜尋</li>
+              <li>多源資料彙整查詢</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg>
+            </div>
+            <h3 class="card__title">多模型 Agent 架構</h3>
+            <p class="card__desc">建構多技能、多模型的 Agent 編排系統，依任務自動路由至最適模型，具備全息記憶與技能庫。</p>
+            <ul class="card__list">
+              <li>模型路由與額度防護</li>
+              <li>多技能架構部署</li>
+              <li>外部記憶整合</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="16" y2="17"/></svg>
+            </div>
+            <h3 class="card__title">提示詞工程與優化</h3>
+            <p class="card__desc">系統化提示詞設計與調校，包含角色架構、鏈式流程、壓力檢核與多模型適配，適用 DeepSeek、Claude、Gemini 等。</p>
+            <ul class="card__list">
+              <li>提示詞工業化生產</li>
+              <li>反幻覺與事實閘門設計</li>
+              <li>跨模型遷移與適配</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 class="card__title">API 整合與路由</h3>
+            <p class="card__desc">串接 OpenAI 相容 LLM、Google Cloud AI、本地模型，打造 API 額度路由、憑證池與監控機制。</p>
+            <ul class="card__list">
+              <li>多供應商 API 整合</li>
+              <li>額度防護與退避策略</li>
+              <li>監控與成本優化</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card__icon" aria-hidden="true">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h3 class="card__title">企業 AI 諮詢顧問</h3>
+            <p class="card__desc">針對你的資料、平台與客戶需求，提供從研究、架構到部署的完整諮詢，協助評估導入可行性與落地路徑。</p>
+            <ul class="card__list">
+              <li>導入可行性評估</li>
+              <li>架構設計與技術選型</li>
+              <li>團隊培訓與交付</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Capabilities ===== -->
+    <section class="section" id="capabilities" style="background: var(--color-surface-offset);">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">技術能力</p>
+          <h2 class="section-title">完整技術棧，對台灣環境有具體認識</h2>
+          <p class="section-lead">從資料層到應用層，從本地部署到雲端架構，覆蓋 AI 系統開發的每一環。</p>
+        </div>
+
+        <div class="cap-grid">
+          <div class="cap">
+            <h3 class="cap__name">Python 後端 <span class="tag">主要</span></h3>
+            <p class="cap__desc">FastAPI、Flask 服務架構，資料處理與 API 開發的主力語言。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">向量資料庫 <span class="tag">RAG</span></h3>
+            <p class="cap__desc">SQLite FTS5 全文檢索、Qdrant 向量庫，整合 BGE-M3 與 text-embedding-3-large 嵌入模型。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">LLM 模型 <span class="tag">多模型</span></h3>
+            <p class="cap__desc">DeepSeek、Claude、Gemini 等 OpenAI 相容 API 串接與多模型路由編排。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">Agent 框架 <span class="tag">Hermes</span></h3>
+            <p class="cap__desc">Hermes Agent 多技能架構、全息記憶與外部記憶 Provider 整合。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">雲端基礎建設 <span class="tag">GCP/OCI</span></h3>
+            <p class="cap__desc">Google Cloud Platform 與 OCI 部署、容器化、成本優化與監控。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">前端開發 <span class="tag">PWA</span></h3>
+            <p class="cap__desc">行動優先 PWA、響應式介面、純 HTML/CSS/JS 與 Design Component 架構。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">法規資料庫 <span class="tag">47K</span></h3>
+            <p class="cap__desc">47,001 條台灣法規全文資料，AI 欄位批次填充與品質修正工作流。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">Git 工作流 <span class="tag">CI/CD</span></h3>
+            <p class="cap__desc">分支管理、PR 審查、CodeQL/Lint 自動化測試與持續整合。</p>
+          </div>
+          <div class="cap">
+            <h3 class="cap__name">AI 安全 <span class="tag">防幻覺</span></h3>
+            <p class="cap__desc">內容過濾、安全路由、事實閘門與壓力測試驗證框架。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Method ===== -->
+    <section class="section" id="method">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">合作流程</p>
+          <h2 class="section-title">五階段，從釐清到交付</h2>
+          <p class="section-lead">每個環節都可驗證、可質疑。不跳步、不留黑盒子。</p>
+        </div>
+
+        <div class="timeline">
+          <div class="step">
+            <h3 class="step__title">需求釐清</h3>
+            <p class="step__desc">理解你的業務場景、資料現況與目標，產出明確任務摘要與限制條件。</p>
+          </div>
+          <div class="step">
+            <h3 class="step__title">架構設計</h3>
+            <p class="step__desc">從目標、風險、邏輯、效能、延展性五面向評估，提出系統架構與技術選型。</p>
+          </div>
+          <div class="step">
+            <h3 class="step__title">原型開發</h3>
+            <p class="step__desc">快速打造可運作的最小可行產品，模擬邊界狀況與反例，標記風險燈號。</p>
+          </div>
+          <div class="step">
+            <h3 class="step__title">壓力測試</h3>
+            <p class="step__desc">反幻覺壓力檢核、安全路由驗證、事實閘門校準，確保輸出品質穩定。</p>
+          </div>
+          <div class="step">
+            <h3 class="step__title">部署交付</h3>
+            <p class="step__desc">正式環境部署、監控建置、團隊培訓與文件交付，含後續維護支援。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Cases ===== -->
+    <section class="section" id="cases" style="background: var(--color-surface-offset);">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">實績案例</p>
+          <h2 class="section-title">實際打造過的系統</h2>
+          <p class="section-lead">以下為已開發完成、可展示技術成果的實際專案。完整示範可於諮詢時提供。</p>
+        </div>
+
+        <div class="grid-2">
+          <article class="case">
+            <div class="case__media">
+              <span class="badge">法律 AI · 核心框架</span>
+              <span class="name">智研法律 AI 框架</span>
+            </div>
+            <div class="case__body">
+              <span class="case__tag">研究框架</span>
+              <h3 class="case__title">可重現的台灣法律 AI 研究框架</h3>
+              <p class="case__desc">七層架構、本地 RAG 47K 法條、強制引用政策與自我校驗機制，目標是讓每個答案都可被追蹤、驗證、質疑。123 項測試全數通過。</p>
+              <div class="case__meta">
+                <span class="chip">RAG</span><span class="chip">引用政策</span><span class="chip">安全路由</span><span class="chip">事實閘門</span>
+              </div>
+              <a href="#contact" class="case__link">預約示範
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case__media">
+              <span class="badge">法律 AI · 應用產品</span>
+              <span class="name">智研 MVP 應用</span>
+            </div>
+            <div class="case__body">
+              <span class="case__tag">產品應用</span>
+              <h3 class="case__title">六模組法律 AI 助手應用</h3>
+              <p class="case__desc">整合法律諮詢、合約自動產生、法規異動監控、智慧搜尋 RAG、背景調查與文件摘要六大模組，行動優先 PWA 加 FastAPI 後端。</p>
+              <div class="case__meta">
+                <span class="chip">PWA</span><span class="chip">FastAPI</span><span class="chip">OAuth</span><span class="chip">SQLite FTS5</span>
+              </div>
+              <a href="#contact" class="case__link">預約示範
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case__media">
+              <span class="badge">Agent · 多技能</span>
+              <span class="name">磐石矩陣技能庫</span>
+            </div>
+            <div class="case__body">
+              <span class="case__tag">Agent 系統</span>
+              <h3 class="case__title">多域技能執行與全息記憶</h3>
+              <p class="case__desc">113 項技能、27 類分類的 Agent 技能庫，涵蓋 Agent 認知架構、自我學習、多模型路由與自動化工作流程，具備全息記憶與自評機制。</p>
+              <div class="case__meta">
+                <span class="chip">Hermes Agent</span><span class="chip">113 技能</span><span class="chip">模型路由</span>
+              </div>
+              <a href="#contact" class="case__link">預約示範
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="case">
+            <div class="case__media">
+              <span class="badge">市場情報 · 接案</span>
+              <span class="name">AI 接案情報系統</span>
+            </div>
+            <div class="case__body">
+              <span class="case__tag">自動化</span>
+              <h3 class="case__title">全台 AI 案源掃描與分析</h3>
+              <p class="case__desc">每日掃描全台外包平台 AI 案源，篩選 AI 導入、LLM 應用與 AI 視覺多媒體三大類，產出結構化情報報告與市場分析。</p>
+              <div class="case__meta">
+                <span class="chip">掃描自動化</span><span class="chip">市場分析</span><span class="chip">B2B 提案</span>
+              </div>
+              <a href="#contact" class="case__link">預約示範
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Pricing ===== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <p class="eyebrow" style="justify-content:center;">報價方案</p>
+          <h2 class="section-title">透明的計費方式</h2>
+          <p class="section-lead" style="margin-inline:auto;">依專案規模與複雜度計費，複雜度高的系統建議先諮詢再報價。以下為常見方案參考。</p>
+        </div>
+
+        <div class="plans">
+          <div class="plan">
+            <h3 class="plan__name">輕量諮詢</h3>
+            <div class="plan__price">NT$ 15,000<small> / 起</small></div>
+            <p class="plan__desc">適合需求明確、需快速驗證的小型任務。</p>
+            <ul class="plan__features">
+              <li>單一模組開發或串接</li>
+              <li>API 整合與測試</li>
+              <li>提示詞調校</li>
+              <li>1 次免費諮詢</li>
+              <li>2 週交付期</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost">選擇此方案</a>
+          </div>
+
+          <div class="plan plan--featured">
+            <span class="plan__ribbon">最常選擇</span>
+            <h3 class="plan__name">標準系統</h3>
+            <div class="plan__price">NT$ 80,000<small> / 起</small></div>
+            <p class="plan__desc">適合需要完整 RAG 或 Agent 系統的企業。</p>
+            <ul class="plan__features">
+              <li>客製化 RAG 檢索系統</li>
+              <li>多模型 Agent 架構</li>
+              <li>法規/文件資料庫整合</li>
+              <li>反幻覺與安全路由</li>
+              <li>正式部署與監控</li>
+              <li>4-8 週交付期</li>
+            </ul>
+            <a href="#contact" class="btn btn--gold">選擇此方案</a>
+          </div>
+
+          <div class="plan">
+            <h3 class="plan__name">企業導入</h3>
+            <div class="plan__price">洽談報價</div>
+            <p class="plan__desc">適合大型組織 AI 轉型與長期合作。</p>
+            <ul class="plan__features">
+              <li>完整 AI 系統架構設計</li>
+              <li>多部門整合與培訓</li>
+              <li>雲端基礎建設部署</li>
+              <li>專屬顧問與維護</li>
+              <li>客製化開發</li>
+              <li>長期合作支援</li>
+            </ul>
+            <a href="#contact" class="btn btn--ghost">聯絡洽談</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Contact form ===== -->
+    <section class="section" id="contact" style="background: var(--color-surface-offset);">
+      <div class="container container-wide">
+        <div class="grid-2" style="align-items:start;">
+          <div>
+            <p class="eyebrow">開始洽談</p>
+            <h2 class="section-title">告訴我們你的需求</h2>
+            <p class="section-lead" style="margin-bottom: var(--space-8);">填寫下方表單，或直接與 AI 客服對話——它能即時回答關於服務、技術與報價的常見問題。我們會在 1 個工作天內回覆。</p>
+
+            <div style="display:flex; flex-direction:column; gap: var(--space-5);">
+              <div style="display:flex; align-items:center; gap: var(--space-3);">
+                <span class="card__icon" style="width:40px;height:40px;margin:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></span>
+                <div><div style="font-size:var(--text-sm);color:var(--color-text-muted);">電子郵件</div><div style="font-weight:600;">Lucien127@proton.me</div></div>
+              </div>
+              <div style="display:flex; align-items:center; gap: var(--space-3);">
+                <span class="card__icon" style="width:40px;height:40px;margin:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                <div><div style="font-size:var(--text-sm);color:var(--color-text-muted);">服務區域</div><div style="font-weight:600;">台灣桃園 · 全台遠距合作</div></div>
+              </div>
+              <div style="display:flex; align-items:center; gap: var(--space-3);">
+                <span class="card__icon" style="width:40px;height:40px;margin:0;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+                <div><div style="font-size:var(--text-sm);color:var(--color-text-muted);">回覆時間</div><div style="font-weight:600;">1 個工作天內</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <form id="contactForm" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="name">姓名 <span class="req">*</span></label>
+                  <input type="text" id="name" name="name" required placeholder="您的稱呼" />
+                </div>
+                <div class="field">
+                  <label for="email">電子郵件 <span class="req">*</span></label>
+                  <input type="email" id="email" name="email" required placeholder="you@example.com" />
+                </div>
+                <div class="field">
+                  <label for="company">公司 / 組織</label>
+                  <input type="text" id="company" name="company" placeholder="選填" />
+                </div>
+                <div class="field">
+                  <label for="service">需求類型</label>
+                  <select id="service" name="service">
+                    <option value="">請選擇</option>
+                    <option>法律 AI 系統開發</option>
+                    <option>RAG 檢索系統</option>
+                    <option>多模型 Agent 架構</option>
+                    <option>提示詞工程</option>
+                    <option>API 整合與路由</option>
+                    <option>企業 AI 諮詢</option>
+                    <option>其他</option>
+                  </select>
+                </div>
+                <div class="field field--full">
+                  <label for="budget">預算範圍</label>
+                  <select id="budget" name="budget">
+                    <option value="">請選擇</option>
+                    <option>3 萬以內</option>
+                    <option>3-10 萬</option>
+                    <option>10-30 萬</option>
+                    <option>30 萬以上</option>
+                    <option>尚未確定</option>
+                  </select>
+                </div>
+                <div class="field field--full">
+                  <label for="message">需求描述 <span class="req">*</span></label>
+                  <textarea id="message" name="message" required placeholder="請簡述您的業務場景、現有資料與希望達成的目標⋯⋯"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn--gold btn--lg" style="width:100%; margin-top: var(--space-6);">送出需求</button>
+              <p class="form-note">送出後我們將透過電子郵件聯繫您。您的資料僅用於此次接案洽談，不會外洩。</p>
+            </form>
+
+            <div class="form-success" id="formSuccess">
+              <div class="form-success__icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <h3 style="font-size: var(--text-lg); margin-bottom: var(--space-2);">需求已送出</h3>
+              <p style="color: var(--color-text-muted);">感謝您的信任，我們會在 1 個工作天內透過電子郵件回覆您。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Footer ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="brand">
+            <span class="brand__mark" aria-hidden="true">
+              <svg width="36" height="36" viewBox="0 0 32 32" fill="none">
+                <rect width="32" height="32" rx="7" fill="#243044"/>
+                <rect x="8" y="7" width="3" height="18" rx="1.5" fill="#c9a84c"/>
+                <rect x="14" y="8" width="10" height="2.6" rx="1.3" fill="#c9a84c"/>
+                <rect x="14" y="14.7" width="10" height="2.6" rx="1.3" fill="#c9a84c"/>
+                <rect x="14" y="21.4" width="6.5" height="2.6" rx="1.3" fill="#c9a84c"/>
+              </svg>
+            </span>
+            <span><span class="brand__name">智研</span><br/><span class="brand__sub">Zhiyan Studio</span></span>
+          </div>
+          <p class="footer__about">台灣 AI 工程接案服務。專精法律 AI、RAG 檢索增強、多模型 Agent 架構與提示詞工程，讓每個 AI 答案都可追蹤、可驗證。</p>
+        </div>
+
+        <div class="footer__col">
+          <h4>服務</h4>
+          <ul>
+            <li><a href="#services">法律 AI 系統</a></li>
+            <li><a href="#services">RAG 檢索系統</a></li>
+            <li><a href="#services">Agent 架構</a></li>
+            <li><a href="#services">提示詞工程</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>認識</h4>
+          <ul>
+            <li><a href="#capabilities">技術能力</a></li>
+            <li><a href="#method">合作流程</a></li>
+            <li><a href="#cases">實績案例</a></li>
+            <li><a href="#pricing">報價方案</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>聯絡</h4>
+          <ul>
+            <li><a href="mailto:Lucien127@proton.me">Lucien127@proton.me</a></li>
+            <li><a href="#contact">需求表單</a></li>
+            <li><a href="#hero">台灣桃園</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 智研 Zhiyan Studio. 保留所有權利。</span>
+        <span>系統輸出為研究人工製品，不構成法律意見。</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== AI Chatbot Widget ===== -->
+  <button class="chat-fab" id="chatFab" aria-label="開啟 AI 客服">
+    <span class="chat-fab__pulse" aria-hidden="true"></span>
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    <span class="chat-fab__badge" id="chatBadge">1</span>
+  </button>
+
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="AI 客服對話" aria-modal="false">
+    <div class="chat-header">
+      <span class="chat-header__avatar" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="none"><path d="M9 22V10h3.2l4.8 8.2V10H20v12h-3.2l-4.8-8.2V22H9z" fill="currentColor"/></svg>
+      </span>
+      <div class="chat-header__info">
+        <div class="chat-header__name">智研 AI 客服</div>
+        <div class="chat-header__status"><span class="dot-ok"></span>線上 · 即時回應</div>
+      </div>
+      <button class="chat-close" id="chatClose" aria-label="關閉對話">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="chat-body" id="chatBody" aria-live="polite"></div>
+    <div class="chat-quick" id="chatQuick">
+      <button data-q="你們提供哪些服務？">提供哪些服務？</button>
+      <button data-q="法律 AI 是什麼？能做什麼？">法律 AI 能做什麼？</button>
+      <button data-q="報價大約多少？">報價大約多少？</button>
+      <button data-q="合作流程是怎樣的？">合作流程？</button>
+      <button data-q="如何開始洽談？">如何開始？</button>
+    </div>
+    <form class="chat-input" id="chatForm">
+      <input type="text" id="chatInput" placeholder="輸入您的問題⋯⋯" autocomplete="off" aria-label="輸入訊息" />
+      <button type="submit" class="chat-send" id="chatSend" aria-label="送出訊息">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </form>
+  </div>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
