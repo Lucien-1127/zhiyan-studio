@@ -1,0 +1,4 @@
+interface:
+  display_name: "智研商務技能交接"
+  short_description: "將客戶的重複工作編成可攜式代理技能，審查規則並交付驗收案例"
+  default_prompt: "用 $zhiyan-skill-delivery 把客戶的訪談整理需求製成可交接、可驗收的代理技能。"

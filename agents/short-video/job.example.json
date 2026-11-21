@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "kind": "fixture",
+  "topic": "固定底圖與前景合成示例",
+  "sources": [
+    {
+      "title": "FFmpeg Filters Documentation",
+      "url": "https://ffmpeg.org/ffmpeg-filters.html#overlay",
+      "excerpt": "範例將固定背景和移動前景合成，使用測試圖形驗收。"
+    }
+  ],
+  "narration": "Fixed background.",
+  "providers": {
+    "research": "sources",
+    "script": "extract",
+    "visual": "fixture",
+    "motion": "fixture",
+    "voice": "fixture-flite",
+    "edit": "ffmpeg"
+  },
+  "files": {},
+  "mode": "chroma",
+  "fps": 12,
+  "seconds": 3,
+  "delivery_limits": {"max_mean_color_error": 4.0, "max_mean_flicker": 2.0}
+}

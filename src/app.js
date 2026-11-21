@@ -54,19 +54,26 @@ window.matchMedia('(min-width: 54.01rem)').addEventListener('change', event => {
 });
 
 const contactForm = document.querySelector('#contactForm');
+const contactMailto = document.querySelector('#contact-email').getAttribute('href');
+const contactEmail = contactMailto.slice('mailto:'.length);
 const plan = document.querySelector('#plan');
 const draftResult = document.querySelector('#draftResult');
 const draftText = document.querySelector('#draftText');
 const copyStatus = document.querySelector('#copyStatus');
+const openDraft = document.querySelector('#openDraft');
+openDraft.href = contactMailto;
+document.querySelector('#draftRecipient').textContent = contactEmail;
 contactForm.hidden = false;
 function discardDraft() {
   draftResult.hidden = true;
   draftText.value = '';
+  openDraft.href = contactMailto;
   copyStatus.textContent = '';
 }
-document.querySelectorAll('[data-plan]').forEach(link => {
+document.querySelectorAll('[data-plan], [data-service]').forEach(link => {
   link.addEventListener('click', () => {
-    plan.value = link.dataset.plan;
+    if (link.dataset.plan) plan.value = link.dataset.plan;
+    if (link.dataset.service) contactForm.elements.service.value = link.dataset.service;
     discardDraft();
   });
 });
@@ -96,8 +103,7 @@ contactForm.addEventListener('submit', event => {
   draftText.value = '主旨：' + subject + '\r\n\r\n' + body;
   draftResult.hidden = false;
   draftResult.scrollIntoView({ block: 'nearest' });
-  const mail = 'mailto:Lucien127@proton.me?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-  document.querySelector('#openDraft').href = mail;
+  openDraft.href = contactMailto + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   draftText.focus({ preventScroll: true });
 });
 document.querySelector('#copyDraft').addEventListener('click', async () => {
@@ -116,14 +122,18 @@ const answers = [
   { keys: ['對象', '適合', '誰'], text: '顧問、講師、法律工作者、電商、創作者與小型團隊都可以從一項固定、經常重複、有明確輸出的工作開始。' },
   { keys: ['費用', '價格', '多少錢', '預算', '報價', '用量', '訂閱', '一次性'], text: '一次性建置費為單一工作流包 NT$18,000 起，工作流＋知識庫 NT$38,000 起。額外系統整合另行報價。若需第三方訂閱或用量費用，會在動工前另列。' },
   { keys: ['邊界', '不做', '代操', '修改', '排除'], text: '固定範圍方案涵蓋約定工具、手冊與教學。長期代操、無限次修改及單純口頭顧問服務都在範圍外。' },
-  { keys: ['開始', '聯絡', '洽談', 'line'], text: '可用洽談表單開啟郵件草稿，或加 LINE（vbn920）。說明目前做法、耗時與期望結果即可。' },
+  { keys: ['開始', '聯絡', '洽談', 'line', '信箱', '郵件', 'email', 'gmail'], text: '可寄信到 ' + contactEmail + '、用洽談表單準備草稿，或加 LINE（vbn920）。請說明目前做法與期望結果。' },
+  { keys: ['prompt factory', '提示詞', '等義壓縮'], text: '提示詞工廠可從需求設計指令，也能審查現有版本。等義壓縮會保留任務、限制與輸出格式，再用範例核對結果。' },
+  { keys: ['writer compiler', '寫作指令', '寫作', '文風'], text: 'Writer Compiler 可依現成條件快速整理指令，或透過引導訪談釐清讀者與文風，產出可重用的寫作指令。可在工作類型選「寫作指令」詢問示範。' },
+  { keys: ['skill.md', '客製技能', '技能檔'], text: '可把團隊的操作方法寫成客製 SKILL.md，列明輸入、步驟與驗收範例，再用手冊和實作教學交接。' },
+  { keys: ['短影音', 'cineagent', 'ffmpeg', '背景鎖定'], text: '短影音依序進行題材蒐集、腳本、視覺生成、圖生影、語音合成與自動剪輯。需要固定背景時，先選定參考畫面，再逐片驗收背景鎖定效果。' },
   { keys: ['法律', '合約', '法規', '判決'], text: '可協助整理與查找法律資料，保留引用供核對。重要結果仍需由合格專業人士確認。' },
   { keys: ['知識庫', '搜尋', '文件', '資料'], text: '工作流＋知識庫方案會約定資料格式、搜尋與來源引用，並交付日後更新的操作方法。' }
 ];
 function findAnswer(question) {
   const query = question.toLowerCase();
   let bestScore = 0;
-  let reply = '這個問題需要了解實際工作。請在洽談需求表單說明，或直接寄信到 Lucien127@proton.me。';
+  let reply = '這個問題需要了解實際工作。請在洽談需求表單說明，或直接寄信到 ' + contactEmail + '。';
   for (const answer of answers) {
     const score = answer.keys.reduce((sum, key) => sum + (query.includes(key) ? key.length : 0), 0);
     if (score > bestScore) {
