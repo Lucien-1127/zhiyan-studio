@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#f8f9f5">
+  <meta name="theme-color" content="#f7f4eb">
   <title>智研工作室｜客製 AI 工作流與知識庫</title>
   <meta name="description" content="智研協助顧問、講師、律師與小型團隊，把重複工作做成能自己操作的 AI 工具。比較方案、查看公開案例，或帶一件工作來討論。">
   <meta property="og:title" content="智研工作室｜客製 AI 工作流與知識庫">
@@ -13,10 +13,11 @@
   <meta property="og:locale" content="zh_TW">
   <meta property="og:image" content="https://lucien126.com/assets/studio-workflow.webp">
   <link rel="canonical" href="https://lucien126.com/">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f483f'/%3E%3Cpath fill='%23e3efab' d='M7 7h3v18H7zm7 1h11v3H14zm0 7h11v3H14zm0 7h7v3h-7z'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="./base.css">
-  <link rel="stylesheet" href="./style.css">
-  <script src="./app.js" defer></script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='2' fill='%23243f34'/%3E%3Cpath fill='%23f7f4eb' d='M7 7h3v18H7zm7 1h11v3H14zm0 7h11v3H14zm0 7h7v3h-7z'/%3E%3C/svg%3E">
+  <!-- release-assets:start -->
+  <link rel="stylesheet" href="./assets/site-a9010ed4079b3a85.css">
+  <script src="./assets/site-747073d517388cc1.js" defer></script>
+  <!-- release-assets:end -->
 </head>
 <body>
   <a class="skip" href="#main">跳至主要內容</a>
@@ -41,23 +42,47 @@
   <main id="main">
     <section class="wrap hero" id="hero" aria-labelledby="headline">
       <div class="hero-copy">
-        <p class="kicker"><span class="accent-line"></span>AI 工作流與知識庫設計</p>
-        <h1 id="headline">把重複的工作，<br><em>做成自己的工具。</em></h1>
-        <p class="lead">每週都要從一疊文件裡找資料、整理成報告？帶一份範例來，智研會把你的做法做成一套能自己操作的 AI 工具。</p>
-        <div class="actions"><a class="button" href="#contact">討論我的工作流程</a><a class="button secondary" href="#pricing">查看方案費用</a></div>
+        <p class="kicker">客製 AI 工作流與知識庫</p>
+        <h1 id="headline">把反覆做的事，<br><em>交給自己的工具。</em></h1>
+        <p class="lead">從訪談裡撈出交件日期，從舊文件找回一句有出處的話。帶一份你每週都要重做的工作來，智研把你的做法寫成能自己操作的工具。</p>
+        <div class="actions"><a class="button" href="#contact">討論我的工作流程<span aria-hidden="true">→</span></a><a class="text-action" href="#pricing">查看方案費用</a></div>
       </div>
-      <figure class="hero-art">
-        <img src="./assets/studio-workflow.webp" alt="" width="1200" height="900" fetchpriority="high">
-        <figcaption><span>智研工作室</span><span>桃園・全台遠距合作</span></figcaption>
+      <figure class="work-sheet" aria-labelledby="sheet-caption sheet-title">
+        <figcaption id="sheet-caption"><span>工作底稿 ／ 訪談整理</span><span class="sample-disclosure">虛構示例</span></figcaption>
+        <div class="sheet-content">
+          <h2 id="sheet-title">展覽手冊交接</h2>
+          <fieldset class="sheet-switch">
+            <legend class="sr">選擇要閱讀的工作底稿</legend>
+            <input class="sheet-radio sr" type="radio" name="work-sheet-view" id="view-source" aria-controls="sheet-source">
+            <label id="source-label" for="view-source">原始訪談</label>
+            <input class="sheet-radio sr" type="radio" name="work-sheet-view" id="view-brief" aria-controls="sheet-brief" checked>
+            <label id="brief-label" for="view-brief">交付摘要</label>
+            <div class="sheet-pages">
+              <div class="sheet-page" id="sheet-source" role="group" aria-labelledby="source-label">
+                <dl class="transcript">
+                  <dt>企劃</dt><dd>「週三下午四點前，先給我一頁展覽介紹。手冊先用這三張選圖。」</dd>
+                  <dt>編輯</dt><dd>「我會整理圖說。攝影師還沒回覆刊登授權，先別把圖片放進公開版。」</dd>
+                </dl>
+              </div>
+              <div class="sheet-page" id="sheet-brief" role="group" aria-labelledby="brief-label">
+                <dl class="brief">
+                  <div><dt>交付項目</dt><dd>一頁展覽介紹、三張選圖的圖說草稿。</dd></div>
+                  <div><dt>初稿期限</dt><dd>週三 <strong>16:00</strong> 前</dd></div>
+                  <div class="query"><dt>待確認</dt><dd>攝影師的刊登授權。取得回覆前，圖片先不公開。</dd></div>
+                </dl>
+              </div>
+            </div>
+          </fieldset>
+        </div>
       </figure>
     </section>
 
     <section class="section deliver" id="services" aria-labelledby="services-title"><div class="wrap">
-      <div class="section-heading"><h2 id="services-title">交付後，你手上有什麼？</h2><p>工具、操作方法、實際演練，一起交到你手上。</p></div>
+      <div class="section-heading"><div><p class="kicker">交付內容</p><h2 id="services-title">做完，你帶走三樣東西。</h2></div></div>
       <div class="deliver-grid">
-        <article><span class="tile-icon glyph-flow" aria-hidden="true"><i></i></span><h3>一套專屬工作流</h3><p>把固定步驟做成提示詞、可重用技能或輕量代理器，附上範例、輸出格式，以及遇到例外時的處理方式。</p></article>
-        <article><span class="tile-icon glyph-book" aria-hidden="true"><i></i></span><h3>一本操作手冊</h3><p>用繁體中文說明怎麼準備資料、執行與檢查結果。選配知識庫時，也會交付資料格式、引用與更新方法。</p></article>
-        <article><span class="tile-icon glyph-clock" aria-hidden="true"><i></i></span><h3>一小時實作教學</h3><p>用你的工作範例一起跑一次，練到可以自己重做。交付後提供 14 天約定範圍內的瑕疵修正。</p></article>
+        <article><h3>一套專屬工作流</h3><p>把固定步驟做成提示詞、可重用技能或輕量代理器，附上範例、輸出格式，以及遇到例外時的處理方式。</p></article>
+        <article><h3>一本操作手冊</h3><p>用繁體中文說明怎麼準備資料、執行與檢查結果。選配知識庫時，也會交付資料格式、引用與更新方法。</p></article>
+        <article><h3>一小時實作教學</h3><p>用你的工作範例一起跑一次，練到可以自己重做。交付後提供 14 天約定範圍內的瑕疵修正。</p></article>
       </div>
     </div></section>
 
@@ -74,12 +99,12 @@
     </div></section>
 
     <section class="section work" id="cases" aria-labelledby="work-title"><div class="wrap">
-      <div class="section-heading"><div><p class="kicker">作品案例</p><h2 id="work-title">打開作品，看實際做法。</h2></div><p>可查看公開程式碼，或來信索取寫作流程示範。</p></div>
+      <div class="section-heading"><div><p class="kicker">作品案例</p><h2 id="work-title">工作室作品索引</h2></div><p>三件作品開放查看程式碼。想看寫作流程如何保留作者語氣，也可以來信索取示範。</p></div>
       <div class="work-grid">
-        <article><p class="category">法律研究／公開研究框架</p><h3>智研法律 AI</h3><p>把法條、判決與回答放在一起核對，留下引用與待查項目，讓研究者能回到原文。</p><a href="https://github.com/Lucien-1127/zhiyan-legal">查看法律研究程式碼</a></article>
-        <article><p class="category">工作流設計／公開工具</p><h3>提示詞工廠</h3><p>把需求、限制、工具及驗收規則寫成可重用技能，下次換一份資料也能照同一套方法處理。</p><a href="https://github.com/Lucien-1127/prompt-factory">查看提示詞工具</a></article>
-        <article><p class="category">內容製作／可重用模板</p><h3 lang="en">Writer Compiler</h3><p>從研究、大綱到品質檢查，將寫作規格與作者語氣留在同一份流程裡。</p><a href="#contact">詢問寫作流程示範</a></article>
-        <article><p class="category">影片製作／發布候選</p><h3 lang="en">CineAgent</h3><p>串接分鏡、費用檢查與中斷續跑。真實聲音與口型同步仍在驗證中。</p><a href="https://github.com/Lucien-1127/CineAgent">查看影片工作流程式碼</a></article>
+        <article><div><p class="category">法律研究 ／ 公開研究框架</p><h3>智研法律 AI</h3></div><p>把法條、判決與回答放在一起核對，留下引用與待查項目，讓研究者能回到原文。</p><a href="https://github.com/Lucien-1127/zhiyan-legal">查看法律研究程式碼<span aria-hidden="true">↗</span></a></article>
+        <article><div><p class="category">工作流設計 ／ 公開工具</p><h3>提示詞工廠</h3></div><p>把需求、限制、工具及驗收規則寫成可重用技能，下次換一份資料也能照同一套方法處理。</p><a href="https://github.com/Lucien-1127/prompt-factory">查看提示詞工具<span aria-hidden="true">↗</span></a></article>
+        <article><div><p class="category">內容製作 ／ 可重用模板</p><h3 lang="en">Writer Compiler</h3></div><p>從研究、大綱到品質檢查，將寫作規格與作者語氣留在同一份流程裡。</p><a href="#contact">詢問寫作流程示範<span aria-hidden="true">→</span></a></article>
+        <article><div><p class="category">影片製作 ／ 發布候選</p><h3 lang="en">CineAgent</h3></div><p>串接分鏡、費用檢查與中斷續跑。真實聲音與口型同步仍在驗證中。</p><a href="https://github.com/Lucien-1127/CineAgent">查看影片工作流程式碼<span aria-hidden="true">↗</span></a></article>
       </div>
     </div></section>
 
@@ -94,12 +119,16 @@
     </div></section>
 
     <section class="section pricing" id="pricing" aria-labelledby="pricing-title"><div class="wrap">
-      <div class="section-heading"><div><p class="kicker">方案費用</p><h2 id="pricing-title">依工作需要選方案。</h2></div><p>以下以新台幣計價。資料量、串接範圍與第三方費用會在動工前書面確認。</p></div>
+      <div class="section-heading"><div><p class="kicker">方案費用</p><h2 id="pricing-title">建置一條工作流，要多少？</h2></div><p>以下是新台幣一次性建置費。實際報價依資料量與串接範圍，在動工前書面確認。</p></div>
       <div class="plan-grid">
         <article class="plan"><h3>單一工作流包</h3><p class="price"><small>NT$</small> 18,000 <small>起</small></p><p>已有固定做法，想省下每週反覆整理的時間。</p><ul><li>一條固定範圍工作流與使用範例</li><li>操作手冊與一小時教學</li><li>交付後 14 天瑕疵修正</li></ul><a class="button secondary" href="#contact" data-plan="單一工作流包">詢問單一工作流</a></article>
         <article class="plan featured"><h3>工作流＋知識庫</h3><p class="price"><small>NT$</small> 38,000 <small>起</small></p><p>需要從內部文件找依據，再依固定格式產出內容。</p><ul><li>工作流、知識資料整理與搜尋</li><li>來源引用、驗收、手冊與一小時教學</li><li>交付後 14 天瑕疵修正</li></ul><a class="button" href="#contact" data-plan="工作流＋知識庫">詢問知識庫方案</a></article>
         <article class="plan"><h3>額外系統整合</h3><p class="price custom-price">另行報價</p><p>流程還需要接上網站、外部服務或既有系統。</p><ul><li>先確認可驗收的最小版本</li><li>列出串接項目與第三方費用</li><li>維護與修改範圍另行確認</li></ul><a class="button secondary" href="#contact" data-plan="額外系統整合">討論系統整合</a></article>
       </div>
+      <dl class="terms">
+        <div><dt>第三方與用量費</dt><dd>若工作流使用外部模型、主機或其他付費服務，相關訂閱或用量費用會在報價時另列。</dd></div>
+        <div><dt>交付後的支援</dt><dd>固定範圍方案含 14 天瑕疵修正。長期代操、無限次修改與單純口頭顧問服務均在範圍外。</dd></div>
+      </dl>
     </div></section>
 
     <section class="section contact" id="contact" aria-labelledby="contact-title"><div class="wrap split">

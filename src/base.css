@@ -1,0 +1,68 @@
+:root {
+  color-scheme: light;
+  --paper: #f7f4eb;
+  --surface: #fffcf3;
+  --tint: #eeeadd;
+  --folio: #f2ead7;
+  --ink: #242d25;
+  --body: #414b40;
+  --muted: #616859;
+  --line: #c7c4b3;
+  --edge: #7d826f;
+  --accent: #2d5141;
+  --rust: #934724;
+  --button-text: #fffcf3;
+  --focus: #954025;
+  --deep: #243f34;
+  --deep-text: #faf5e8;
+  --deep-muted: #d7ddce;
+  --deep-detail: #ebbf93;
+  --deep-line: #758778;
+  --serif: "Noto Serif TC", "Noto Serif CJK TC", "Songti TC", "Source Han Serif TC", "PMingLiU", Georgia, serif;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  font-family: system-ui, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #1b211c;
+  --surface: #222a23;
+  --tint: #293128;
+  --folio: #2e3027;
+  --ink: #f4f0df;
+  --body: #d6d8c8;
+  --muted: #b3bcaa;
+  --line: #535d50;
+  --edge: #919b84;
+  --accent: #c1d5b4;
+  --rust: #edaf88;
+  --button-text: #1d2d23;
+  --focus: #ffc49c;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --paper: #1b211c; --surface: #222a23; --tint: #293128; --folio: #2e3027;
+    --ink: #f4f0df; --body: #d6d8c8; --muted: #b3bcaa; --line: #535d50;
+    --edge: #919b84; --accent: #c1d5b4; --rust: #edaf88;
+    --button-text: #1d2d23; --focus: #ffc49c;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.72; }
+h1, h2, h3, p, figure, dl, dd, ul, ol { margin: 0; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button, select, summary { cursor: pointer; }
+button { background: transparent; border: 0; }
+a { color: inherit; text-underline-offset: .27em; text-decoration-thickness: 1px; }
+img { display: block; width: 100%; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+::selection { background: #d5dec6; color: #1b3728; }
+h1, h2, h3 { line-height: 1.27; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 650; }
+h2 { font-size: clamp(1.9rem, 3.45vw, 3.1rem); letter-spacing: -.035em; text-wrap: balance; }
+h3 { font-size: 1.38rem; letter-spacing: -.02em; }
+.sr, .skip:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip:focus { position: fixed; z-index: 10; top: .4rem; left: .4rem; background: var(--surface); color: var(--ink); padding: .65rem 1rem; }
