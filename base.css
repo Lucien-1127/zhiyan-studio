@@ -1,127 +1,59 @@
-/* base.css — mandatory base stylesheet */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+:root {
+  color-scheme: light;
+  --paper: #f8f9f5;
+  --surface: #fff;
+  --tint: #eaf0e8;
+  --ink: #172d28;
+  --body: #42574e;
+  --muted: #53695e;
+  --line: #cbd5ca;
+  --accent: #285447;
+  --button-text: #fff;
+  --focus: #a24b24;
+  --deep: #183e34;
+  --deep-text: #f3f6ed;
+  --deep-muted: #ccdbcf;
+  --lime: #e3efab;
+  --ease-out: cubic-bezier(.23, 1, .32, 1);
+  font-family: Inter, system-ui, "PingFang TC", "Microsoft JhengHei", "Noto Sans TC", sans-serif;
+  scroll-padding-top: 5.5rem;
+  -webkit-text-size-adjust: 100%;
 }
-
-html {
-  -moz-text-size-adjust: none;
-  -webkit-text-size-adjust: none;
-  text-size-adjust: none;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-  scroll-behavior: smooth;
-  scroll-padding-top: var(--space-20);
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --paper: #18261f;
+  --surface: #202f27;
+  --tint: #293a2f;
+  --ink: #edf3e9;
+  --body: #c3d3c6;
+  --muted: #afc4b5;
+  --line: #485d50;
+  --accent: #c6dba5;
+  --button-text: #182e24;
+  --focus: #f7b389;
 }
-
-body {
-  min-height: 100dvh;
-  line-height: 1.65;
-  font-family: var(--font-body);
-  font-size: var(--text-base);
-  color: var(--color-text);
-  background-color: var(--color-bg);
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-ul[role='list'],
-ol[role='list'] {
-  list-style: none;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-  color: inherit;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
-  line-height: 1.2;
-  font-family: var(--font-body);
-  font-weight: 700;
-}
-h1, h2 { font-family: var(--font-display); }
-
-p, li, figcaption {
-  text-wrap: pretty;
-  max-width: 70ch;
-}
-
-::selection {
-  background: rgba(201, 168, 76, 0.28);
-  color: var(--color-text);
-}
-
-:focus-visible {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 3px;
-  border-radius: var(--radius-sm);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --paper: #18261f; --surface: #202f27; --tint: #293a2f; --ink: #edf3e9;
+    --body: #c3d3c6; --muted: #afc4b5; --line: #485d50;
+    --accent: #c6dba5; --button-text: #182e24; --focus: #f7b389;
   }
 }
-
-button {
-  cursor: pointer;
-  background: none;
-  border: none;
-}
-
-a {
-  transition: color var(--transition-interactive), background var(--transition-interactive);
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.skip-link {
-  position: absolute;
-  left: var(--space-4);
-  top: -100px;
-  z-index: 200;
-  padding: var(--space-3) var(--space-5);
-  background: var(--color-accent);
-  color: #1a2332;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  transition: top 0.2s ease;
-}
-.skip-link:focus {
-  top: var(--space-4);
-}
+*, *::before, *::after { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); line-height: 1.72; }
+h1, h2, h3, p, figure, dl, dd, ul, ol { margin: 0; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button, select, summary { cursor: pointer; }
+button { background: transparent; border: 0; }
+a { color: inherit; text-underline-offset: .27em; }
+img { display: block; width: 100%; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
+::selection { background: #d8e6ba; color: #17392e; }
+h1, h2, h3 { line-height: 1.27; }
+h1, h2 { font-family: "Noto Serif TC", "Noto Serif CJK TC", "Songti TC", "Source Han Serif TC", "PMingLiU", serif; font-weight: 700; }
+h2 { font-size: clamp(1.9rem, 3.6vw, 3.15rem); letter-spacing: -.045em; }
+h3 { font-size: 1.24rem; letter-spacing: -.025em; }
+.sr, .skip:not(:focus) { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip:focus { position: fixed; z-index: 10; top: .4rem; left: .4rem; background: var(--surface); color: var(--ink); padding: .65rem 1rem; }
