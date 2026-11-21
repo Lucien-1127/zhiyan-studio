@@ -96,7 +96,7 @@ contactForm.addEventListener('submit', event => {
   draftText.value = '主旨：' + subject + '\r\n\r\n' + body;
   draftResult.hidden = false;
   draftResult.scrollIntoView({ block: 'nearest' });
-  const mail = 'mailto:Lucien127@proton.me?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  const mail = 'mailto:l62665348@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   document.querySelector('#openDraft').href = mail;
   draftText.focus({ preventScroll: true });
 });
@@ -123,7 +123,7 @@ const answers = [
 function findAnswer(question) {
   const query = question.toLowerCase();
   let bestScore = 0;
-  let reply = '這個問題需要了解實際工作。請在洽談需求表單說明，或直接寄信到 Lucien127@proton.me。';
+  let reply = '這個問題需要了解實際工作。請在洽談需求表單說明，或直接寄信到 l62665348@gmail.com。';
   for (const answer of answers) {
     const score = answer.keys.reduce((sum, key) => sum + (query.includes(key) ? key.length : 0), 0);
     if (score > bestScore) {

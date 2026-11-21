@@ -1,0 +1,81 @@
+name: Sync public project evidence
+on:
+  schedule:
+    - cron: '17 23 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-evidence.yml'
+      - 'scripts/sync_evidence.py'
+
+concurrency:
+  group: public-evidence-main
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    permissions:
+      contents: write
+      pages: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Refresh the verified figures
+        id: refresh
+        shell: bash
+        run: |
+          set -euo pipefail
+          for attempt in 1 2 3; do
+            git fetch --quiet --depth=1 origin refs/heads/main
+            git checkout --quiet --detach FETCH_HEAD
+            python3 scripts/sync_evidence.py refresh
+            python3 scripts/sync_evidence.py check
+            python3 scripts/release.py check
+            if git diff --quiet -- data/project-evidence.json index.html; then
+              echo 'changed=false' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            git add -- data/project-evidence.json index.html
+            git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m '同步公開工程數據與來源版本'
+            if git push origin HEAD:refs/heads/main; then
+              echo 'changed=true' >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+            echo "::notice::Push did not complete; retrying against the current main branch."
+          done
+          exit 1
+      - name: Publish to Pages and verify the custom domain
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          CHANGED: ${{ steps.refresh.outputs.changed }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$CHANGED" == false ]] && python3 scripts/release.py verify-live; then
+            exit 0
+          fi
+          # A push made by GITHUB_TOKEN does not start a branch-based Pages deployment.
+          # A concurrent ordinary Pages deployment can already have queued this build.
+          if ! gh api --method POST "repos/$REPOSITORY/pages/builds" --silent; then
+            echo "::warning::Pages build request was declined; checking the actual domain."
+          fi
+          for attempt in {1..13}; do
+            git fetch --quiet --depth=1 origin refs/heads/main
+            if [[ "$(git rev-parse FETCH_HEAD)" != "$(git rev-parse HEAD)" ]]; then
+              # The new head may also contain a site change. Verify its intended assets.
+              git checkout --quiet --detach FETCH_HEAD
+              python3 scripts/sync_evidence.py check
+            fi
+            if python3 scripts/release.py verify-live; then
+              exit 0
+            fi
+            [[ "$attempt" == 13 ]] || sleep 45
+          done
+          echo "::error::The production domain did not serve the committed version."
+          exit 1

@@ -1,0 +1,34 @@
+{
+  "name": "prepare-interview-handoff",
+  "title": "訪談底稿交接",
+  "activation": {
+    "include": ["將訪談逐字稿整理成交付摘要"],
+    "exclude": ["將訪談內容寄給客戶", "撰寫新的宣傳文案"]
+  },
+  "inputs": {"transcript": "UTF-8 純文字逐字稿，每段附發言者。"},
+  "outputs": {"brief": "Markdown 表格，欄位為交付項目、原文依據、期限與待確認事項。未提及期限填「待確認」。"},
+  "allow": ["extract-evidence", "draft-summary"],
+  "deny": ["send-email", "publish-images"],
+  "steps": [
+    {
+      "action": "extract-evidence",
+      "read": ["transcript"],
+      "write": ["evidence"],
+      "instruction": "逐項擷取工作內容、原句與說話者。保留原文對授權和日期的限制。",
+      "failure": {"when": "逐字稿空白或缺少發言內容", "then": "停止，保留案件名稱，要求補上含發言者的逐字稿。"}
+    },
+    {
+      "action": "draft-summary",
+      "read": ["evidence"],
+      "write": ["brief"],
+      "instruction": "每列只對應一個明確要求交付的成果，附上原句和期限。照片授權等前置條件只列在該成果的待確認欄，不另建交付項目。期限照原文，缺少的日期或上午下午資訊留待確認。",
+      "failure": {"when": "同一交付項目有兩個互斥期限", "then": "保留兩句原話，期限欄填待確認，交由承辦人確認。"}
+    }
+  ],
+  "cases": {
+    "normal": {"input": "請將訪談整理成交付摘要。企劃：週三四點前交一頁介紹。編輯：照片授權還在等攝影師。", "expected": "只有一列交付項目「一頁介紹」，期限依原句「週三四點前」，附發言者原文；攝影師的授權留在該列待確認欄。"},
+    "outside_scope": {"input": "請直接寄給客戶，並上傳照片。", "expected": "說明可整理摘要的範圍，沒有寄信或上傳照片的工具動作。"},
+    "failure": {"input": "請將以下訪談逐字稿整理成交付摘要，逐字稿內容為空白。", "expected": "回報缺少逐字稿，要求補件並保留待處理狀態。"}
+  },
+  "handoff": "由承辦人逐句比對期限、圖片授權與說話者，再將已確認的交付摘要交給編輯。"
+}

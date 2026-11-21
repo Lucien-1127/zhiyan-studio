@@ -8,4 +8,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 scripts/release.py check
+      - run: python3 scripts/sync_evidence.py check
+      - run: python3 -B -m unittest discover -s scripts -p 'test_*.py'
       - run: node --check src/app.js
+      - name: Validate pricing rules and skill handoff
+        run: |
+          python3 -B -m unittest discover -s agents/pricing -p 'test_*.py'
+          python3 -B agents/skill-delivery/scripts/test_review.py
+      - name: Test both presenter background modes offline
+        shell: bash
+        run: |
+          if [[ ! -x /usr/bin/ffmpeg ]] || ! /usr/bin/python3 -c 'import numpy, PIL' 2>/dev/null; then
+            sudo apt-get update -qq
+            sudo apt-get install -y --no-install-recommends ffmpeg python3-numpy python3-pil
+          fi
+          PATH="/usr/bin:$PATH" /usr/bin/python3 -B agents/short-video/check.py

@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "zhiyan-legal": {
+    "revision": "192aefb36cf254727b2f6cf97cba65416324b398",
+    "commit_date": "2026-09-04",
+    "laws": 22,
+    "articles": 5458
+  },
+  "prompt-factory": {
+    "revision": "b53da21b2defa3c9a99efb69795494cfa17b4db6",
+    "commit_date": "2026-11-19",
+    "tests": 15,
+    "scenarios": 34
+  }
+}
