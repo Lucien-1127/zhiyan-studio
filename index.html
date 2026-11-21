@@ -1,208 +1,135 @@
-<!DOCTYPE html>
-<html lang="zh-Hant" data-theme="light">
+<!doctype html>
+<html lang="zh-Hant-TW">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>智研｜把重複工作變成可交付的 AI 工作流</title>
-  <meta name="description" content="智研為顧問、講師、律師與小型電商打造客戶專屬 AI 工作流與知識庫，交付可重用代理器、操作手冊與一小時教學。" />
-  <meta property="og:title" content="智研｜客戶專屬 AI 工作流與知識庫" />
-  <meta property="og:description" content="把查資料、整理文件、產出內容與回覆客戶等重複步驟，接成可重用、可驗收、低維護的 AI 工作流。" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="zh_TW" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./base.css" />
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%231a2332'/%3E%3Cpath d='M9 22V10h3.2l4.8 8.2V10H20v12h-3.2l-4.8-8.2V22H9z' fill='%23c9a84c'/%3E%3C/svg%3E" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f8f9f5">
+  <title>智研工作室｜客製 AI 工作流與知識庫</title>
+  <meta name="description" content="智研協助顧問、講師、律師與小型團隊，把重複工作做成能自己操作的 AI 工具。比較方案、查看公開案例，或帶一件工作來討論。">
+  <meta property="og:title" content="智研工作室｜客製 AI 工作流與知識庫">
+  <meta property="og:description" content="從一件重複的工作開始，交付可重用的工具、操作手冊與一小時教學。">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:image" content="https://lucien126.com/assets/studio-workflow.webp">
+  <link rel="canonical" href="https://lucien126.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%231f483f'/%3E%3Cpath fill='%23e3efab' d='M7 7h3v18H7zm7 1h11v3H14zm0 7h11v3H14zm0 7h7v3h-7z'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./base.css">
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
 </head>
 <body>
-  <a href="#main" class="skip-link">跳至主要內容</a>
-
-  <header class="header" id="header">
-    <div class="container header__inner">
-      <a href="#hero" class="brand" aria-label="智研首頁">
-        <span class="brand__mark" aria-hidden="true">
-          <svg width="36" height="36" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="7" fill="var(--navy)"/><rect x="8" y="7" width="3" height="18" rx="1.5" fill="var(--gold)"/><rect x="14" y="8" width="10" height="2.6" rx="1.3" fill="var(--gold)"/><rect x="14" y="14.7" width="10" height="2.6" rx="1.3" fill="var(--gold)"/><rect x="14" y="21.4" width="6.5" height="2.6" rx="1.3" fill="var(--gold)"/></svg>
-        </span>
-        <span><span class="brand__name">智研</span><br/><span class="brand__sub">Zhiyan Studio</span></span>
+  <a class="skip" href="#main">跳至主要內容</a>
+  <header class="mast">
+    <div class="wrap mast-inner">
+      <a class="brand" href="#hero" aria-label="智研工作室首頁">
+        <span class="monogram" aria-hidden="true"><i></i><b></b></span>
+        <span>智研工作室<small lang="en">ZHIYAN STUDIO</small></span>
       </a>
-      <nav class="nav" aria-label="主導航">
-        <ul class="nav__links" role="list">
-          <li><a href="#services">你會拿到什麼</a></li>
-          <li><a href="#method">合作方式</a></li>
-          <li><a href="#cases">案例證據</a></li>
-          <li><a href="#pricing">方案價格</a></li>
-        </ul>
-        <div class="header__actions">
-          <button class="icon-btn" data-theme-toggle aria-label="切換深淺色模式"></button>
-          <a href="#contact" class="btn btn--gold">說明你的需求</a>
-          <button class="icon-btn nav-toggle" id="navToggle" aria-label="開啟選單" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
-        </div>
+      <nav class="desktop-nav" aria-label="主要導覽">
+        <a href="#services">交付內容</a><a href="#cases">作品案例</a><a href="#method">合作方式</a><a href="#pricing">方案費用</a>
       </nav>
+      <div class="mast-actions">
+        <button type="button" class="icon-button enhanced" id="theme" aria-label="切換深淺色" title="切換深淺色" hidden><span class="theme-disc" aria-hidden="true"></span></button>
+        <a class="button compact" href="#contact">洽談需求</a>
+        <details class="mobile-nav" id="menu"><summary aria-label="網站選單"><span class="menu-icon" aria-hidden="true"></span></summary>
+          <nav aria-label="手機導覽"><a href="#services">交付內容</a><a href="#capabilities">適用情境</a><a href="#cases">作品案例</a><a href="#method">合作方式</a><a href="#pricing">方案費用</a><a href="#contact">洽談需求</a></nav>
+        </details>
+      </div>
     </div>
   </header>
-
-  <div class="drawer" id="drawer">
-    <button class="icon-btn drawer__close" id="drawerClose" aria-label="關閉選單"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    <nav aria-label="行動版導航">
-      <a href="#services" data-drawer-link>你會拿到什麼</a>
-      <a href="#method" data-drawer-link>合作方式</a>
-      <a href="#cases" data-drawer-link>案例證據</a>
-      <a href="#pricing" data-drawer-link>方案價格</a>
-      <a href="#contact" data-drawer-link>開始洽談</a>
-    </nav>
-  </div>
-
   <main id="main">
-    <section class="hero" id="hero">
-      <div class="hero__bg" aria-hidden="true"></div>
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow">一人 AI 工作室 · 台灣</p>
-          <h1 class="hero__title">每天都在重做的工作，<br/>變成<span class="hl">按一次就能重用</span>的流程。</h1>
-          <p class="hero__lead">查文件、整理資料、產出內容、回覆客戶——智研把你的做法整理成專屬 AI 工作流與知識庫。交付後由你自己操作，不綁長期代操。</p>
-          <div class="hero__cta">
-            <a href="#contact" class="btn btn--gold btn--lg">說明目前最浪費時間的工作</a>
-            <a href="#services" class="btn btn--ghost btn--lg">先看交付內容</a>
-          </div>
-          <div class="hero__trust">
-            <div class="trust-item"><strong>固定範圍</strong> 先說清楚再製作</div>
-            <div class="trust-item"><strong>可重用</strong> 提示詞或代理器</div>
-            <div class="trust-item"><strong>看得懂</strong> 操作說明書</div>
-            <div class="trust-item"><strong>1 小時</strong> 實際操作教學</div>
-          </div>
-        </div>
-        <div class="hero__visual">
-          <p class="hero__visual-label">適合這些情況</p>
-          <p class="hero__visual-title">你知道怎麼做，只是每次都要重來</p>
-          <div class="cite-demo">
-            <p class="q">「資料散在不同檔案，每次都要重新找、重新整理。」</p>
-            <p class="a">把資料來源、判斷規則與輸出格式整理成一條可重跑的工作流。</p>
-            <span class="cite-chip">顧問 · 講師 · 律師 · 小型電商</span>
-          </div>
-          <div class="verified-row"><span class="dot-ok"></span>先做小範圍驗收，再決定是否擴充</div>
-        </div>
+    <section class="wrap hero" id="hero" aria-labelledby="headline">
+      <div class="hero-copy">
+        <p class="kicker"><span class="accent-line"></span>AI 工作流與知識庫設計</p>
+        <h1 id="headline">把重複的工作，<br><em>做成自己的工具。</em></h1>
+        <p class="lead">每週都要從一疊文件裡找資料、整理成報告？帶一份範例來，智研會把你的做法做成一套能自己操作的 AI 工具。</p>
+        <div class="actions"><a class="button" href="#contact">討論我的工作流程</a><a class="button secondary" href="#pricing">查看方案費用</a></div>
       </div>
+      <figure class="hero-art">
+        <img src="./assets/studio-workflow.webp" alt="" width="1200" height="900" fetchpriority="high">
+        <figcaption><span>智研工作室</span><span>桃園・全台遠距合作</span></figcaption>
+      </figure>
     </section>
 
-    <section class="stats">
-      <div class="container"><div class="stats__grid">
-        <div class="stat"><div class="stat__num">1</div><div class="stat__label">個最值得省下的流程</div></div>
-        <div class="stat"><div class="stat__num">3</div><div class="stat__label">項核心交付物</div></div>
-        <div class="stat"><div class="stat__num">1 hr</div><div class="stat__label">實際操作教學</div></div>
-        <div class="stat"><div class="stat__num">14 天</div><div class="stat__label">交付後瑕疵修正期</div></div>
-      </div></div>
-    </section>
-
-    <section class="section" id="services">
-      <div class="container">
-        <div class="section-head">
-          <p class="eyebrow">你會拿到什麼</p>
-          <h2 class="section-title">不是只給建議，而是一套你能繼續使用的工具</h2>
-          <p class="section-lead">先選一個明確、重複而且耗時的工作。智研把它整理、製作、測試，再完整交到你手上。</p>
-        </div>
-        <div class="grid-3">
-          <article class="card"><div class="card__icon">01</div><h3 class="card__title">專屬 AI 工作流</h3><p class="card__desc">依照你真正的工作順序，製作可重用的超級提示詞、Skill（技能）或輕量代理器。</p><ul class="card__list"><li>固定輸入與輸出格式</li><li>常見錯誤與例外處理</li><li>可複製使用的範例</li></ul></article>
-          <article class="card"><div class="card__icon">02</div><h3 class="card__title">資料與知識庫整理</h3><p class="card__desc">把常用文件、規則與參考資料整理成 AI 找得到、答得出來源的結構。</p><ul class="card__list"><li>資料格式與欄位規則</li><li>搜尋與引用方式</li><li>更新資料的簡單流程</li></ul></article>
-          <article class="card"><div class="card__icon">03</div><h3 class="card__title">說明書＋一小時教學</h3><p class="card__desc">交付操作手冊並帶你跑完一次。你知道怎麼開始、何時檢查，以及遇到問題怎麼處理。</p><ul class="card__list"><li>繁體中文操作說明</li><li>一小時線上教學</li><li>交付後 14 天瑕疵修正</li></ul></article>
-        </div>
+    <section class="section deliver" id="services" aria-labelledby="services-title"><div class="wrap">
+      <div class="section-heading"><h2 id="services-title">交付後，你手上有什麼？</h2><p>工具、操作方法、實際演練，一起交到你手上。</p></div>
+      <div class="deliver-grid">
+        <article><span class="tile-icon glyph-flow" aria-hidden="true"><i></i></span><h3>一套專屬工作流</h3><p>把固定步驟做成提示詞、可重用技能或輕量代理器，附上範例、輸出格式，以及遇到例外時的處理方式。</p></article>
+        <article><span class="tile-icon glyph-book" aria-hidden="true"><i></i></span><h3>一本操作手冊</h3><p>用繁體中文說明怎麼準備資料、執行與檢查結果。選配知識庫時，也會交付資料格式、引用與更新方法。</p></article>
+        <article><span class="tile-icon glyph-clock" aria-hidden="true"><i></i></span><h3>一小時實作教學</h3><p>用你的工作範例一起跑一次，練到可以自己重做。交付後提供 14 天約定範圍內的瑕疵修正。</p></article>
       </div>
-    </section>
+    </div></section>
 
-    <section class="section" id="capabilities" style="background:var(--color-surface-offset);">
-      <div class="container">
-        <div class="section-head"><p class="eyebrow">適用場景</p><h2 class="section-title">從你每天真的在做的工作開始</h2><p class="section-lead">不要求你先懂模型或程式。只要能說明現在怎麼做、哪裡最花時間，就能開始評估。</p></div>
-        <div class="cap-grid">
-          <div class="cap"><h3 class="cap__name">顧問 <span class="tag">資料整理</span></h3><p class="cap__desc">訪談紀錄整理、研究資料彙整、報告初稿與客戶問答。</p></div>
-          <div class="cap"><h3 class="cap__name">講師 <span class="tag">內容製作</span></h3><p class="cap__desc">教材改寫、課程大綱、題庫與不同平台的內容版本。</p></div>
-          <div class="cap"><h3 class="cap__name">律師與法律工作者 <span class="tag">可查證</span></h3><p class="cap__desc">文件摘要、條文與判決檢索、合約檢查清單；重要結果仍由專業人士確認。</p></div>
-          <div class="cap"><h3 class="cap__name">小型電商 <span class="tag">減少重複</span></h3><p class="cap__desc">商品資料整理、客服回覆草稿、內容排程與營運知識整理。</p></div>
-          <div class="cap"><h3 class="cap__name">內容創作者 <span class="tag">一致輸出</span></h3><p class="cap__desc">角色設定、文章與腳本流程、圖片／影片提示詞與品質檢查。</p></div>
-          <div class="cap"><h3 class="cap__name">小型團隊 <span class="tag">交接知識</span></h3><p class="cap__desc">把散落在文件與腦中的做法，整理成新人也能跟著操作的流程。</p></div>
-        </div>
+    <section class="section" id="capabilities" aria-labelledby="examples-title"><div class="wrap split">
+      <div class="intro"><p class="kicker">適用情境</p><h2 id="examples-title">選個接近你的工作，<br>看它怎麼跑。</h2><p>以下是工作流示例。展開職務，可以看見要準備的資料，以及最後拿到的成果。</p></div>
+      <div class="examples">
+        <details name="example" open><summary>顧問<span>訪談整理</span></summary><dl><dt>準備</dt><dd>訪談逐字稿、報告範本</dd><dt>產出</dt><dd>依主題整理的客戶報告草稿，附待確認事項。</dd></dl></details>
+        <details name="example"><summary>講師<span>教材製作</span></summary><dl><dt>準備</dt><dd>課程筆記、學員程度與授課時間</dd><dt>產出</dt><dd>課程大綱、分段講義與練習題。</dd></dl></details>
+        <details name="example"><summary>法律工作者<span>來源核對</span></summary><dl><dt>準備</dt><dd>去識別化文件與需要核對的來源</dd><dt>產出</dt><dd>文件摘要、引用對照與待查清單，供專業人員覆核。</dd></dl></details>
+        <details name="example"><summary>小型電商<span>商品上架</span></summary><dl><dt>準備</dt><dd>商品規格、品牌語氣與上架欄位</dd><dt>產出</dt><dd>格式一致的商品資料與客服回覆草稿。</dd></dl></details>
+        <details name="example"><summary>內容創作者<span>寫作與腳本</span></summary><dl><dt>準備</dt><dd>題目、過去作品與平台規格</dd><dt>產出</dt><dd>保留作者語氣的文章大綱、腳本與檢查清單。</dd></dl></details>
+        <details name="example"><summary>小型團隊<span>經驗交接</span></summary><dl><dt>準備</dt><dd>舊文件、同事常問的問題與作業規則</dd><dt>產出</dt><dd>可搜尋的工作指引，附原始文件與更新方法。</dd></dl></details>
       </div>
-    </section>
+    </div></section>
 
-    <section class="section" id="method">
-      <div class="container">
-        <div class="section-head"><p class="eyebrow">合作方式</p><h2 class="section-title">四個步驟，範圍清楚再動工</h2><p class="section-lead">不承接無限修改、長期代操或只有口頭建議的顧問案。</p></div>
-        <div class="timeline">
-          <div class="step"><h3 class="step__title">確認問題</h3><p class="step__desc">選出一個最耗時的重複工作，確認使用者、資料、輸出與不能犯的錯。</p></div>
-          <div class="step"><h3 class="step__title">鎖定範圍</h3><p class="step__desc">書面列出交付內容、排除項目、價格、時程與驗收方式。</p></div>
-          <div class="step"><h3 class="step__title">製作與驗收</h3><p class="step__desc">用實際案例測試；沒通過約定標準，就不算完成。</p></div>
-          <div class="step"><h3 class="step__title">交付與教學</h3><p class="step__desc">交付工具、手冊與一小時教學，讓你能自行使用與更新。</p></div>
-        </div>
+    <section class="section work" id="cases" aria-labelledby="work-title"><div class="wrap">
+      <div class="section-heading"><div><p class="kicker">作品案例</p><h2 id="work-title">打開作品，看實際做法。</h2></div><p>可查看公開程式碼，或來信索取寫作流程示範。</p></div>
+      <div class="work-grid">
+        <article><p class="category">法律研究／公開研究框架</p><h3>智研法律 AI</h3><p>把法條、判決與回答放在一起核對，留下引用與待查項目，讓研究者能回到原文。</p><a href="https://github.com/Lucien-1127/zhiyan-legal">查看法律研究程式碼</a></article>
+        <article><p class="category">工作流設計／公開工具</p><h3>提示詞工廠</h3><p>把需求、限制、工具及驗收規則寫成可重用技能，下次換一份資料也能照同一套方法處理。</p><a href="https://github.com/Lucien-1127/prompt-factory">查看提示詞工具</a></article>
+        <article><p class="category">內容製作／可重用模板</p><h3 lang="en">Writer Compiler</h3><p>從研究、大綱到品質檢查，將寫作規格與作者語氣留在同一份流程裡。</p><a href="#contact">詢問寫作流程示範</a></article>
+        <article><p class="category">影片製作／發布候選</p><h3 lang="en">CineAgent</h3><p>串接分鏡、費用檢查與中斷續跑。真實聲音與口型同步仍在驗證中。</p><a href="https://github.com/Lucien-1127/CineAgent">查看影片工作流程式碼</a></article>
       </div>
-    </section>
+    </div></section>
 
-    <section class="section" id="cases" style="background:var(--color-surface-offset);">
-      <div class="container">
-        <div class="section-head"><p class="eyebrow">案例證據</p><h2 class="section-title">已經實際做過，不只停在概念</h2><p class="section-lead">清楚標示目前狀態；研究中或尚未完成真實驗收的功能，不包裝成正式產品。</p></div>
-        <div class="grid-2">
-          <article class="case"><div class="case__media"><span class="badge">知識庫 · 法律研究</span><span class="name">智研法律 AI</span></div><div class="case__body"><span class="case__tag">公開研究框架</span><h3 class="case__title">讓回答能回頭找到來源</h3><p class="case__desc">整合法規、判決檢索、引用保存與錯誤阻擋；重點不是替代律師，而是降低查找與整理時遺漏來源的風險。</p><div class="case__meta"><span class="chip">來源引用</span><span class="chip">判決檢索</span><span class="chip">持續整合驗證</span></div><a href="https://github.com/Lucien-1127/zhiyan-legal" class="case__link" target="_blank" rel="noopener">查看公開程式碼 →</a></div></article>
-          <article class="case"><div class="case__media"><span class="badge">工作流 · 可重用技能</span><span class="name">提示詞工廠</span></div><div class="case__body"><span class="case__tag">公開工具</span><h3 class="case__title">把一次性提示詞變成可重複流程</h3><p class="case__desc">將需求、限制、工具、驗收與安全規則整理成可重用 Skill，減少每次從頭說明與反覆修正。</p><div class="case__meta"><span class="chip">繁體中文</span><span class="chip">模板</span><span class="chip">驗證規則</span></div><a href="https://github.com/Lucien-1127/prompt-factory" class="case__link" target="_blank" rel="noopener">查看公開程式碼 →</a></div></article>
-          <article class="case"><div class="case__media"><span class="badge">內容製作 · 寫作流程</span><span class="name">Writer Compiler</span></div><div class="case__body"><span class="case__tag">可重用模板</span><h3 class="case__title">把寫作需求編譯成穩定規格</h3><p class="case__desc">從方向、研究、大綱到品質檢查，保留作者語氣並支援文章、系列內容與劇本製作。</p><div class="case__meta"><span class="chip">研究</span><span class="chip">作者語氣</span><span class="chip">品質閘門</span></div><a href="#contact" class="case__link">詢問示範 →</a></div></article>
-          <article class="case"><div class="case__media"><span class="badge">影片工作流 · 驗證中</span><span class="name">CineAgent</span></div><div class="case__body"><span class="case__tag">發布候選</span><h3 class="case__title">可復原、可檢查的影片製作流程</h3><p class="case__desc">已建立分鏡、供應商路由、狀態續跑與費用防護；真實聲音與口型同步仍在驗證，不宣稱已完成商業交付。</p><div class="case__meta"><span class="chip">斷點續跑</span><span class="chip">成本防護</span><span class="chip">狀態透明</span></div><a href="https://github.com/Lucien-1127/CineAgent" class="case__link" target="_blank" rel="noopener">查看公開程式碼 →</a></div></article>
-        </div>
+    <section class="section" id="method" aria-labelledby="method-title"><div class="wrap split">
+      <div class="intro"><p class="kicker">合作方式</p><h2 id="method-title">先約定怎麼驗收，<br>再開始製作。</h2></div>
+      <ol class="steps">
+        <li><h3>帶一份工作範例</h3><p>選定一件經常重做的事，說明你怎麼做、用哪些資料、怎樣才算完成。</p></li>
+        <li><h3>書面確認範圍</h3><p>一起確認交付物、排除項目、時程、費用與驗收標準。</p></li>
+        <li><h3>用實際案例驗收</h3><p>用約定的資料測試輸出，也檢查資料不足或格式錯誤時的反應。</p></li>
+        <li><h3>交付工具，帶你重跑</h3><p>拿到工具與手冊後，線上一起操作一小時，確認可以自行使用與更新。</p></li>
+      </ol>
+    </div></section>
+
+    <section class="section pricing" id="pricing" aria-labelledby="pricing-title"><div class="wrap">
+      <div class="section-heading"><div><p class="kicker">方案費用</p><h2 id="pricing-title">依工作需要選方案。</h2></div><p>以下以新台幣計價。資料量、串接範圍與第三方費用會在動工前書面確認。</p></div>
+      <div class="plan-grid">
+        <article class="plan"><h3>單一工作流包</h3><p class="price"><small>NT$</small> 18,000 <small>起</small></p><p>已有固定做法，想省下每週反覆整理的時間。</p><ul><li>一條固定範圍工作流與使用範例</li><li>操作手冊與一小時教學</li><li>交付後 14 天瑕疵修正</li></ul><a class="button secondary" href="#contact" data-plan="單一工作流包">詢問單一工作流</a></article>
+        <article class="plan featured"><h3>工作流＋知識庫</h3><p class="price"><small>NT$</small> 38,000 <small>起</small></p><p>需要從內部文件找依據，再依固定格式產出內容。</p><ul><li>工作流、知識資料整理與搜尋</li><li>來源引用、驗收、手冊與一小時教學</li><li>交付後 14 天瑕疵修正</li></ul><a class="button" href="#contact" data-plan="工作流＋知識庫">詢問知識庫方案</a></article>
+        <article class="plan"><h3>額外系統整合</h3><p class="price custom-price">另行報價</p><p>流程還需要接上網站、外部服務或既有系統。</p><ul><li>先確認可驗收的最小版本</li><li>列出串接項目與第三方費用</li><li>維護與修改範圍另行確認</li></ul><a class="button secondary" href="#contact" data-plan="額外系統整合">討論系統整合</a></article>
       </div>
-    </section>
+    </div></section>
 
-    <section class="section" id="pricing">
-      <div class="container">
-        <div class="section-head section-head--center"><p class="eyebrow" style="justify-content:center;">固定範圍方案</p><h2 class="section-title">先從一個可驗收的流程開始</h2><p class="section-lead" style="margin-inline:auto;">以下為起始方案。資料量、外部系統串接與高風險用途會在動工前另行確認。</p></div>
-        <div class="plans">
-          <div class="plan"><h3 class="plan__name">單一工作流包</h3><div class="plan__price">NT$ 18,000<small> 起</small></div><p class="plan__desc">適合已有固定做法，希望減少重複操作的個人工作者。</p><ul class="plan__features"><li>一條固定範圍工作流</li><li>超級提示詞或輕量 Skill</li><li>操作手冊與使用範例</li><li>一小時線上教學</li><li>14 天瑕疵修正</li></ul><a href="#contact" class="btn btn--ghost">詢問是否適合</a></div>
-          <div class="plan plan--featured"><span class="plan__ribbon">主力方案</span><h3 class="plan__name">工作流＋知識庫</h3><div class="plan__price">NT$ 38,000<small> 起</small></div><p class="plan__desc">適合需要從內部文件找資料、整理並產出固定格式內容。</p><ul class="plan__features"><li>一條客戶專屬工作流</li><li>知識資料整理與搜尋</li><li>來源引用與基本驗收</li><li>操作手冊與一小時教學</li><li>14 天瑕疵修正</li></ul><a href="#contact" class="btn btn--gold">說明你的資料與流程</a></div>
-          <div class="plan"><h3 class="plan__name">額外整合</h3><div class="plan__price">另行報價</div><p class="plan__desc">只在確有需要時加入 API、網站或既有系統串接。</p><ul class="plan__features"><li>先完成最小可用版本</li><li>串接範圍書面確認</li><li>第三方費用透明列出</li><li>不綁長期維護合約</li><li>不提供無限次修改</li></ul><a href="#contact" class="btn btn--ghost">確認整合範圍</a></div>
-        </div>
+    <section class="section contact" id="contact" aria-labelledby="contact-title"><div class="wrap split">
+      <div class="intro"><p class="kicker">洽談需求</p><h2 id="contact-title">哪件工作，<br>你每週都在重做？</h2><p>告訴我現在的做法、每週花多久，以及希望得到什麼。智研在桃園提供全台遠距服務，通常會在一個工作天內回覆。</p>
+        <div class="contact-links"><a href="mailto:Lucien127@proton.me">Lucien127@proton.me</a><a href="https://line.me/ti/p/~vbn920">加 LINE 聯絡・vbn920</a></div>
       </div>
-    </section>
-
-    <section class="section" id="contact" style="background:var(--color-surface-offset);">
-      <div class="container container-wide"><div class="grid-2" style="align-items:start;">
-        <div>
-          <p class="eyebrow">開始評估</p><h2 class="section-title">先告訴我：哪一件工作最常重做？</h2>
-          <p class="section-lead" style="margin-bottom:var(--space-8);">不用準備技術規格。說明你現在怎麼做、每週大約花多久、希望最後得到什麼，就能先判斷是否適合產品化。</p>
-          <div style="display:flex;flex-direction:column;gap:var(--space-5);">
-            <div><strong>電子郵件</strong><br/><a href="mailto:Lucien127@proton.me">Lucien127@proton.me</a></div>
-            <div><strong>LINE</strong><br/><a href="https://line.me/ti/p/~vbn920" target="_blank" rel="noopener">加入 LINE：vbn920</a></div>
-            <div><strong>合作方式</strong><br/>台灣桃園 · 全台遠距 · 一個工作天內回覆</div>
-          </div>
-        </div>
-        <div class="form-card">
-          <form id="contactForm" novalidate>
-            <div class="form-grid">
-              <div class="field"><label for="name">姓名 <span class="req">*</span></label><input type="text" id="name" name="name" required placeholder="您的稱呼" /></div>
-              <div class="field"><label for="email">電子郵件 <span class="req">*</span></label><input type="email" id="email" name="email" required placeholder="you@example.com" /></div>
-              <div class="field"><label for="company">職業／公司</label><input type="text" id="company" name="company" placeholder="選填" /></div>
-              <div class="field"><label for="service">想改善的類型</label><select id="service" name="service"><option value="">請選擇</option><option>查資料與知識庫</option><option>文件整理與摘要</option><option>內容與教材製作</option><option>客服與商品資料</option><option>法律文件工作流</option><option>其他重複工作</option></select></div>
-              <div class="field field--full"><label for="budget">預算範圍</label><select id="budget" name="budget"><option value="">請選擇</option><option>2 萬元以內</option><option>2–5 萬元</option><option>5–10 萬元</option><option>尚未確定</option></select></div>
-              <div class="field field--full"><label for="message">目前怎麼做、哪裡最耗時？ <span class="req">*</span></label><textarea id="message" name="message" required placeholder="例如：每週需要從 20 份文件找資料，再整理成固定格式的客戶報告⋯⋯"></textarea></div>
-            </div>
-            <button type="submit" class="btn btn--gold btn--lg" style="width:100%;margin-top:var(--space-6);">開啟郵件草稿</button>
-            <p class="form-note">按下後會開啟您的郵件軟體並填妥內容；送出前仍可自行修改。</p>
-          </form>
-          <div class="form-success" id="formSuccess"><div class="form-success__icon">✓</div><h3>已產生郵件草稿</h3><p>請確認內容後寄出；若沒有自動開啟，請直接寄至 Lucien127@proton.me。</p></div>
-        </div>
-      </div></div>
-    </section>
+      <div class="form-box"><noscript><p>請直接點選電子郵件或 LINE 洽談需求。</p></noscript>
+        <form id="contactForm" hidden>
+          <div class="field-pair"><label>稱呼（必填）<input id="name" name="name" autocomplete="name" required></label><label>電子郵件（必填）<input type="email" name="email" autocomplete="email" required placeholder="you@example.com"></label></div>
+          <label>想了解的方案<select id="plan" name="plan"><option>尚未確定</option><option>單一工作流包</option><option>工作流＋知識庫</option><option>額外系統整合</option></select></label>
+          <label>工作內容（必填）<textarea name="message" rows="4" required placeholder="例如：每週要從 20 份文件整理客戶報告，目前最花時間的是找出處。"></textarea></label>
+          <details class="optional"><summary>補充公司、工作類型或預算（選填）</summary>
+            <label>職業／公司<input name="company" autocomplete="organization"></label>
+            <div class="field-pair"><label>工作類型<select name="service"><option value="">未指定</option><option>查資料與知識庫</option><option>文件整理與摘要</option><option>內容與教材製作</option><option>客服與商品資料</option><option>法律文件工作流</option><option>其他重複工作</option></select></label>
+            <label>預算範圍<select name="budget"><option value="">尚未確定</option><option>2 萬元以內</option><option>2–5 萬元</option><option>5–10 萬元</option></select></label></div>
+          </details>
+          <button class="button" type="submit">產生郵件草稿</button><p class="note">先預覽內容，再選擇用郵件軟體開啟或複製自行寄出。</p>
+        </form>
+        <div class="draft-result" id="draftResult" hidden><p role="status">草稿已備妥。請確認內容，再寄至 Lucien127@proton.me。</p><label>草稿內容<textarea id="draftText" rows="5" readonly></textarea></label><div class="draft-actions"><a class="button" id="openDraft" href="mailto:Lucien127@proton.me">用郵件軟體開啟</a><button type="button" class="text-action" id="copyDraft">複製草稿</button></div><span role="status" id="copyStatus"></span></div>
+      </div>
+    </div></section>
   </main>
+  <footer><div class="wrap footer-inner"><div><strong>智研工作室</strong><span lang="en">Zhiyan Studio · © 2026</span></div><nav aria-label="頁尾導覽"><a href="#services">交付內容</a><a href="#pricing">方案費用</a><a href="#contact">聯絡智研</a></nav><small>AI 輸出須依使用情境確認。法律研究內容不構成法律意見。</small></div></footer>
 
-  <footer class="footer"><div class="container"><div class="footer__grid">
-    <div class="footer__brand"><div class="brand"><span class="brand__name">智研 Zhiyan Studio</span></div><p class="footer__about">把重複工作整理成可重用、可驗收、低維護的 AI 工作流與知識庫。</p></div>
-    <div class="footer__col"><h4>服務</h4><ul><li><a href="#services">AI 工作流</a></li><li><a href="#services">知識庫整理</a></li><li><a href="#services">操作手冊與教學</a></li></ul></div>
-    <div class="footer__col"><h4>了解</h4><ul><li><a href="#method">合作方式</a></li><li><a href="#cases">案例證據</a></li><li><a href="#pricing">方案價格</a></li></ul></div>
-    <div class="footer__col"><h4>聯絡</h4><ul><li><a href="mailto:Lucien127@proton.me">電子郵件</a></li><li><a href="https://line.me/ti/p/~vbn920" target="_blank" rel="noopener">LINE：vbn920</a></li><li><a href="#contact">需求說明</a></li></ul></div>
-  </div><div class="footer__bottom"><span>© 2026 智研 Zhiyan Studio.</span><span>AI 輸出須由使用者依情境確認；法律內容不構成法律意見。</span></div></div></footer>
-
-  <button class="chat-fab" id="chatFab" aria-label="開啟服務問答"><span class="chat-fab__pulse" aria-hidden="true"></span><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7A8.5 8.5 0 1 1 21 11.5z"/></svg><span class="chat-fab__badge" id="chatBadge">1</span></button>
-  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="服務問答" aria-modal="false">
-    <div class="chat-header"><span class="chat-header__avatar">智</span><div class="chat-header__info"><div class="chat-header__name">智研服務問答</div><div class="chat-header__status"><span class="dot-ok"></span>快速了解方案</div></div><button class="chat-close" id="chatClose" aria-label="關閉對話">×</button></div>
-    <div class="chat-body" id="chatBody" aria-live="polite"></div>
-    <div class="chat-quick" id="chatQuick"><button data-q="我會拿到什麼？">交付內容</button><button data-q="適合哪些人？">適合對象</button><button data-q="費用怎麼算？">方案費用</button><button data-q="你們不做什麼？">服務邊界</button><button data-q="如何開始？">如何開始</button></div>
-    <form class="chat-input" id="chatForm"><input type="text" id="chatInput" placeholder="輸入你的問題⋯⋯" autocomplete="off" aria-label="輸入訊息" /><button type="submit" class="chat-send" aria-label="送出訊息">→</button></form>
-  </div>
-  <script src="./app.js" defer></script>
+  <button class="chat-open" id="chatOpen" type="button" aria-haspopup="dialog" aria-controls="chat" hidden><span aria-hidden="true">?</span>服務問答</button>
+  <dialog id="chat" aria-labelledby="chat-title">
+    <header class="chat-head"><div><h2 id="chat-title">智研服務問答</h2><p>依本站方案與交付說明回答</p></div><form method="dialog"><button class="icon-button" aria-label="關閉服務問答" autofocus>×</button></form></header>
+    <div id="chatLog" class="chat-log" role="log" aria-live="polite" aria-label="問答紀錄"><p>想先了解哪一項？選一個問題，或在下方輸入。</p></div>
+    <div class="quick"><button type="button">交付內容</button><button type="button">適合對象</button><button type="button">方案費用</button><button type="button">服務邊界</button><button type="button">如何開始</button></div>
+    <form class="chat-compose" id="chatForm"><label class="sr" for="chatInput">服務問題</label><input id="chatInput" autocomplete="off" placeholder="輸入服務問題" required><button class="button compact" type="submit">送出</button></form>
+  </dialog>
 </body>
 </html>
